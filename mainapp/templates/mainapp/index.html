@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Templates</title>
+    <style>
+      h1 {
+        color: rgb(68, 112, 97);
+        text-align: center;
+        font-style: oblique;
+      }
+      p {
+        font-size: larger;
+      }
+
+      #student {
+        color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Django Templates!</h1>
+    {% if d1.name == "AJM!" %}
+    <h1 style="color: red">{{d1.name}}</h1>
+    {% else %}
+    <h1>{{d1.age}}</h1>
+    {% endif %}
+    <!--For loop-->
+    {% for color in d2.colors %}
+    <ul>
+      <li>{{color}}</li>
+    </ul>
+    {% endfor %}
+
+    <!--<h2>Hello {{d1.name}} and you are {{d1.age}} year old!</h2>-->
+    <p>Accessing array zero index:<strong>{{d2.colors.0}}</strong></p>
+
+    {% for student in s %} {% if student.school == "Kingston" %}
+    <h1 style="color: blue">{{student.name}}</h1>
+    {% else %}
+
+    <ul style="color: red">
+      {{student.name}}
+    </ul>
+
+    {% endif %} {% endfor %} {% for x in s %}
+    <h1>{{ x.name }}</h1>
+    <h1>{{ x.school }}</h1>
+    <h1>{{ x.student_class }}</h1>
+    <h1>{{ x.age }}</h1>
+    {% endfor %}
+    <p>Student age should be greater than 10</p>
+    {% for x in s %} {% if x.age > 10 %}
+    <h1>{{ x.name }}</h1>
+    {% endif %} {% endfor %}
+    <p>Print all the colors:</p>
+    {% for i in colors %} {% if i == "blue" %}
+    <div style="color: blue">{{i}}</div>
+    {% elif i == "gray" %}
+    <div style="color: gray">{{i}}</div>
+    {% else %}
+    <div style="color: orange">{{i}}</div>
+    {% endif %} {% endfor %}
+  </body>
+</html>

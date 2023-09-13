@@ -1,0 +1,43 @@
+{% load mainapp_extras %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  </head>
+  <body>
+    {% comment "my_upper filter" %}
+    <h1>{{ text|my_upper:"123" }}</h1>
+    <hr>
+    {% endcomment %}
+   
+    {% autoescape off %}
+    <h1>&lt;a&gt; is the tag for linking</h1>
+    {% endautoescape %}
+    <h1>Hello Django Template Filters</h1>
+    <div style="color: red">{{ text|alphabets }}</div>
+    <hr>
+    <p style="font-size: larger;">Getting everything in lowercase:
+      <div style="color: cadetblue;">{{ text|lower }}</div>
+    </p>
+    
+    <hr>
+    <h1>How many words in '{{ text }}':
+    <span>{{ text|check_words }}</span></h1>
+    <hr><hr>
+    <h1>For swaping the text:
+      <span>{{ text|swap_string }}</span>
+    </h1>
+    <p style="font-size: larger;color: rgb(255, 174, 0);">{{ text }}</p>
+    <h1>{{ text|add_xx }}</h1>
+    <hr>
+    {{text|truncatechars:80}}
+    <hr>
+    <h5>{{ text|rjust:"10" }}</h5>
+    <hr>
+    <h3>{% hello %}</h3>
+  </body>
+</html>
